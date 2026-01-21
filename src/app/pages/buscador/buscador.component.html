@@ -1,0 +1,26 @@
+<form #ngForm>
+  <div class="buscador">
+    <h1>Buscador</h1>
+    <input
+      type="text"
+      name="termino"
+      id="termino"
+      [(ngModel)]="termino"
+      placeholder="Termino de busqueda"
+      (input)="onChangeTermino()"
+    />
+  </div>
+</form>
+<div class="usuariosContainer" *ngIf="usuariosFiltrados.length > 0; then users else nousers"></div>
+<ng-template #users>
+  <div class="container">
+    <div *ngFor="let user of usuariosFiltrados" class="caja">
+      <img src="{{ user.avatar }}" alt="{{ user.avatar }}" />
+      <h3>{{ user.nombre }} {{ user.apellido }}</h3>
+      <p>{{ user.email }}</p>
+    </div>
+  </div>
+</ng-template>
+<ng-template #nousers>
+  <h1>No hay usuarios disponibles</h1>
+</ng-template>

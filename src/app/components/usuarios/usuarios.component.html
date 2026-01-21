@@ -1,0 +1,17 @@
+<div
+  *ngIf="usuarios.length > 1; then users; else nousers"
+></div>
+
+<ng-template #users>
+  <div class="container">
+    <div *ngFor="let user of usuarios" class="caja">
+      <img src="{{ user.avatar }}" alt="{{ user.avatar }}" />
+      <h3>{{ user.nombre }} {{ user.apellido }}</h3>
+      <p>{{ user.email }}</p>
+      <button (click)="onSelectUser(user.id)">Editar</button>
+    </div>
+  </div>
+</ng-template>
+<ng-template #nousers>
+  <h1>No hay usuarios disponibles</h1>
+</ng-template>

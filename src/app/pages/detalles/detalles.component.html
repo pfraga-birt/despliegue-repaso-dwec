@@ -1,0 +1,23 @@
+<div *ngIf="usuario" class="form">
+  <div class="imagen">
+    <img src="{{ usuario.avatar }}" alt="{{ usuario.avatar }}" />
+  </div>
+  <form #ngForm (submit)="submitUser()">
+    <label for="nombre">Nombre</label> <br />
+    <input type="text" name="nombre" id="nombre" [(ngModel)]="usuario.nombre" />
+    <br /><br />
+    <label for="apellido">Apellido</label> <br />
+    <input
+      type="text"
+      name="apellido"
+      id="apellido"
+      [(ngModel)]="usuario.apellido"
+    />
+    <br /><br />
+    <label for="email">Email</label> <br />
+    <input type="text" name="email" id="email" [(ngModel)]="usuario.email" />
+    <br /><br />
+    <input id="save" type="submit" value="Guardar" /><br />
+    <input id="delete" type="button" value="Eliminar" (click)="deleteUser()" />
+  </form>
+</div>
